@@ -16,7 +16,7 @@ while True:
             if country.title() in line:
                 l = line.split(", ")
                 if country.title() == l[0]:
-                    print(f"Страна {country} находится в Америке. Столица: {l[1]}")
+                    print(f"Страна {country} находится в Америке. Столица: {l[1]}. Валюта: {l[2]}")
         for line in australia:
             if country.title() in line:
                 l = line.split(", ")
@@ -24,8 +24,7 @@ while True:
                     print(f"Страна {country} находится в Австралии. Столица: {l[1]}")
         for line in eurasia:
             if country.title() in line:
-                rep = line.replace(" —", ",")
-                l = rep.split(", ")
+                l = line.split(", ")
                 if country.title() == l[0]:
                     print(f"Страна {country} находится в Евразии. Столица: {l[1]}. Валюта: {l[2]}")
     africa.close()
