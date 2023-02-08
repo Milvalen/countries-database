@@ -1,4 +1,10 @@
 from codecs import open
+import requests
+
+
+url = 'https://api.exchangerate.host/latest'
+response = requests.get(url)
+data = response.json()
 
 
 while True:
@@ -11,7 +17,7 @@ while True:
             if country.title() in line:
                 l = line.split(", ")
                 if country.title() == l[0]:
-                    print(f"Страна {country} находится в Африке. Столица: {l[1]}. Валюта: {l[2]}")
+                    print(f"Страна {country} находится в Африке. Столица: {l[1]}. Валюта: {l[2]}. Курс валюты к рублю РФ: {data['rates']['RUB'] / data['rates'][l[3]]}")
         for line in america:
             if country.title() in line:
                 l = line.split(", ")
@@ -31,4 +37,3 @@ while True:
     america.close()
     australia.close()
     eurasia.close()
-    
