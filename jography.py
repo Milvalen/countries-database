@@ -15,7 +15,7 @@ while True:
     
     # работа с файлами
     with open("countries.txt", "r", "utf_8_sig") as country_file, open("pop.csv", "r", "utf_8_sig") as pop:
-
+        l = "0"
 
         # работа с данными в базе
         for line in country_file:
@@ -31,3 +31,8 @@ while True:
                         p = line.split(",")
                         if l[4] == p[2]:
                             print(f"Население в стране {country}: {p[3]} человек\n")
+                    break    
+
+        # если страны нет в базе
+        if country.title() != l[0]:
+            print(f"\nСтраны {country} нет в базе\n")
